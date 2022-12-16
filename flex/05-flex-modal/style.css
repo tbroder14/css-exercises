@@ -15,11 +15,38 @@ body {
   justify-content: center;
 }
 
+@keyframes fade-in {
+  0% {
+    transform: translate3d(0, 0px, 0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(0, -30px, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes button-fade-in {
+  0% {
+    transform: translate3d(30px, 0, 0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }  
+}
+
 .modal {
   background: white;
   width: 480px;
   border-radius: 10px;
   box-shadow: 2px 4px 16px rgba(0,0,0,.2);
+  transition: all 0.5s;
+  padding: 16px;
+  display: flex;
+  gap: 16px;
+  animation: fade-in 0.5s forwards;
 }
 
 .icon {
@@ -33,6 +60,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .close-button {
@@ -46,11 +74,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 button {
   padding: 8px 16px;
   border-radius: 8px;
+  animation: button-fade-in 0.5s 0.5s forwards;
+  opacity: 0;
 }
 
 button.continue {
@@ -63,4 +94,23 @@ button.cancel {
   background: white;
   border: 1px solid #ddd;
   color: royalblue;
+}
+
+.header {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.middle-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;  
+  flex-direction: column;
+  gap: 16px;
+}
+
+.text-container {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
 }
